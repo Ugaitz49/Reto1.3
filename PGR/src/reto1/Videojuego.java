@@ -16,7 +16,7 @@ public class Videojuego {
 		double media;
 		int numjugador = 0;
 
-		int maxPun = -1;
+		int maxPun = -1; // Se pone en -1 para que cualquier puntuación (que siempre será 0 o más) supere ese valor inicial
 		int mejorJugador = 0;
 		int punGlobal = 0;
 		int enemitotalglobla = 0;
@@ -61,35 +61,35 @@ public class Videojuego {
 			for (int p = 1; p <= partidas; p++) {
 				System.out.println("\n--- Partida " + p + " ---");
 
-				puntos = -1;
+				puntos = 0;
 				// Validar puntos de la partida
 				do {
 					System.out.print("Puntos conseguidos: ");
 					if (cs.hasNextInt()) {
 						puntos = cs.nextInt();
-						if (puntos < 0) {
-							System.out.println("Los puntos no pueden ser negativos.");
+						if (puntos < 1) {
+							System.out.println("Los puntos deben ser al menos 1.");
 						}
 					} else {
 						System.out.println("Has introducido letras o símbolos. Introduce un número.");
 						cs.next(); // Limpia la entrada
 					}
-				} while (puntos < 0);
+				} while (puntos < 1);
 
-				enemigos = -1;
+				enemigos = 0;
 				// Validar enemigos
 				do {
 					System.out.print("Enemigos derrotados: ");
 					if (cs.hasNextInt()) {
 						enemigos = cs.nextInt();
-						if (enemigos < 0) {
-							System.out.println("El número de enemigos no puede ser negativo.");
+						if (enemigos < 1) {
+							System.out.println("El número de enemigos debe ser al menos 1.");
 						}
 					} else {
 						System.out.println("Has introducido letras o símbolos. Introduce un número.");
 						cs.next(); // Limpia la entrada
 					}
-				} while (enemigos < 0);
+				} while (enemigos < 1);
 
 				// Consigues un bonus cuando llegas a los 1000 puntos
 				if (puntos > 1000) {
