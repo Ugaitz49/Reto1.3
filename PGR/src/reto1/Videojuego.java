@@ -27,8 +27,23 @@ public class Videojuego {
 			System.out.println("/nRegistro de jugador " + i);
 			
 		do {
-			
-		}
+			System.out.println("Cuantos puntos conseguiste en la partida:");	
+			puntos = cs.nextInt();
+			if (puntos < 1) {
+				System.out.println("Introduce una puntuacion mas alta que 1. Intentalo de nuevo.");
+			}
+		} while (puntos < 1);
+		
+		do {
+			System.out.println("Introduce enemigos derrotados:");
+			enemigos = cs.nextInt();
+			if (enemigos < 1) {
+				System.out.println("Tienes que poner mas de 1. Intentalo de nuevo.");
+			}
+		} while(enemigos <1);
+		System.out.println("\nResultado jugado");
+		System.out.println("Los puntos conseguidos: " + puntos);
+		System.out.println("El numero de enemigos derrotados son " + enemigos);
 		}
 	}
 
