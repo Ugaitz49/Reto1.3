@@ -24,12 +24,17 @@ public class Cine {
 		Scanner cs = new Scanner(System.in);
 		
 		// Validacion del registro de clientes en la sesion. (Tiene que ser mayor a 1)
-		int regis;
+		int regis = 0;
 		do  {
-		System.out.println("¿Cuántos clientes se van a registrar para la sesión?:");
-		regis = Integer.parseInt(cs.nextLine());
-			if (regis < 1) {
-				System.out.println("El numero que has introducido tiene que ser mayor a 1.");
+			System.out.println("¿Cuántos clientes se van a registrar para la sesión?:");
+			if (cs.hasNextInt()) {
+				regis = cs.nextInt();
+				if (regis < 1) {
+					System.out.println("El número introducido debe ser al menos 1.");
+				}
+			} else {
+				System.out.println("Has introducido letras o símbolos. Introduce un número.");
+				cs.next(); // Limpia la entrada errónea
 			}
 		} while (regis < 1);
 		
@@ -37,21 +42,33 @@ public class Cine {
 		for (int i = 1; i <= regis; i++) {
 			System.out.println("\n***REGISTRO DEL CLIENTE " + i + "***");
 			
+		adulticket = -1;
 		do {
 			//Pedimos las entradas de los adultos.
 			System.out.println("Entradas de adultos:");
-			adulticket = cs.nextInt();
-			if (adulticket < 0) {
-				System.out.println("El numero introducido no es valido. Intentalo de nuevo");
+			if (cs.hasNextInt()) {
+				adulticket = cs.nextInt();
+				if (adulticket < 0) {
+					System.out.println("El número introducido no puede ser negativo.");
+				}
+			} else {
+				System.out.println("Has introducido letras o símbolos. Introduce un número.");
+				cs.next();
 			}
 		} while (adulticket < 0);
 		
+		infaticket = -1;
 		do {
 			//Pedimos las entradas de los niños.
 			System.out.println("Entradas de infantiles:");
-			infaticket = cs.nextInt();
-			if (infaticket < 0) {
-				System.out.println("El numero introducido no es valido. Intentalo de nuevo");
+			if (cs.hasNextInt()) {
+				infaticket = cs.nextInt();
+				if (infaticket < 0) {
+					System.out.println("El número introducido no puede ser negativo.");
+				}
+			} else {
+				System.out.println("Has introducido letras o símbolos. Introduce un número.");
+				cs.next();
 			}
 		} while(infaticket < 0);
 			
@@ -79,11 +96,11 @@ public class Cine {
 			
 			// Acumulador del programa
 			preciototal += preciofinal;
-			adultictotal += adultictotal;
-			infatictotal += infatictotal;
+			adultictotal += adulticket;
+			infatictotal += infaticket;
 			
 			// Para saber quien de los clientes es el que compro mas entradas.
-			if (numtotal < maxetrada) {
+			if (numtotal > maxetrada) {
 				maxetrada = numtotal;
 				clientemax = i;
 			}
@@ -93,8 +110,8 @@ public class Cine {
 		System.out.println("\n==== Resultado de dia ====");
 		System.out.println("Total recaudado: " + preciototal);
 		System.out.println("Total de entradas de adulto: " + adultictotal);
-		System.out.println("Total de entradas de infantiles: " + adultictotal);
-		System.out.println("El cliente " + clientemax + " que compro" + maxetrada);
+		System.out.println("Total de entradas de infantiles: " + infatictotal);
+		System.out.println("El cliente " + clientemax + " que compro " + maxetrada + " entradas.");
 		
 		// Cerramos el objeto Scanner para liberar los recursos.
 		cs.close();
