@@ -8,10 +8,12 @@ public class Revisiones3 {
 
     public static void main(String[] args) {
         Scanner cs = new Scanner(System.in);
+        
+        //Variable para salir del bucle
         boolean salir = false;
 
-        //  Fecha actual al principio
-        System.out.println("--- FECHA ACTUAL ---");
+        //  Fecha actual 
+        System.out.println(" FECHA ACTUAL");
         System.out.println("Introduzca el día actual:");
         int diaActual = Integer.parseInt(cs.nextLine());
 
@@ -23,11 +25,11 @@ public class Revisiones3 {
 
         LocalDate fechaActual = LocalDate.of(anoActual, mesActual, diaActual);
 
-        // Contadores para las bicicletas
+        // Contadores que acumulan los resultados
         int contNecesitan = 0;
         int contNoNecesitan = 0;
 
-        // Bucle para registrar las bicicletas
+        // Bucle While: se repite mientras !salir sea true
         while (!salir) {
             System.out.println("\nIntroduzca el número de identificación de la bicicleta:");
             int identificacion = Integer.parseInt(cs.nextLine());
@@ -41,12 +43,13 @@ public class Revisiones3 {
             System.out.println("Introduzca el año de la última revisión:");
             int ano = Integer.parseInt(cs.nextLine());
 
+            //Agrupa el día, mes y año introducidos en la fecha
             LocalDate fechaRevision = LocalDate.of(ano, mes, dia);
 
             System.out.println("Bicicleta: " + identificacion);
             System.out.println("Última revisión: " + fechaRevision);
 
-            // Comparar si ha pasado más de un año
+            // Condicional IF: Comprueba si la fecha de revisión más un año es anterior a hoy
             if (fechaRevision.plusYears(1).isBefore(fechaActual)) {
                 System.out.println("Esta bicicleta necesita revisión.");
                 contNecesitan++;
@@ -54,16 +57,16 @@ public class Revisiones3 {
                 System.out.println("Esta bicicleta NO necesita revisión.");
                 contNoNecesitan++;
             }
-
+            //Pregunta si quiere salir del bucle
             System.out.println("¿Quiere registrar otra bicicleta? Conteste S o N");
             String respuesta = cs.nextLine();
-
+            // Si marcas la "N" te cambia la variable a true para salir del programa
             if (respuesta.equalsIgnoreCase("n")) {
                 salir = true;
             }
-        }
+        }//Fin del bucle While
 
-        System.out.println("\n--- RESUMEN FINAL ---");
+        System.out.println(" RESUMEN FINAL ");
         System.out.println("Bicicletas que necesitan revisión: " + contNecesitan);
         System.out.println("Bicicletas que no necesitan revisión: " + contNoNecesitan);
         
