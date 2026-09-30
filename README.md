@@ -1,2 +1,2 @@
 # Reto1.3
-Todos los ejercicios de program subidos a la rama master
+Los ejercicios de programación subidos a la rama Master.
