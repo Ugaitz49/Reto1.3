@@ -51,58 +51,126 @@ public class CalcuCo2 {
 				switch (opcion) {
 
 				case 1:
-					System.out.println("¿Cuantos KM has recorrido en coche?");
-					kmC = sc.nextDouble();
+
+					do {
+						System.out.println("¿Cuantos KM has recorrido en coche?");
+						kmC = sc.nextDouble();
+
+						if (kmC < 1) {
+							System.out.println("El numero no puede ser menor que 1");
+						}
+
+					} while (kmC < 1);
+
 					kmC = kmC * 0.21;
-					System.out.println("Co2 usado con el cohe: " + kmC);
+					System.out.println("Co2 usado con el coche: " + kmC);
 					total += kmC;
 					totalCoche += kmC;
+
 					break;
+
 				case 2:
-					System.out.println("¿Cuantos KM has recorrido en autobus?");
-					kmA = sc.nextDouble();
+
+					do {
+						System.out.println("¿Cuantos KM has recorrido en autobus?");
+						kmA = sc.nextDouble();
+
+						if (kmA < 1) {
+							System.out.println("El numero no puede ser menor que 1");
+						}
+
+					} while (kmA < 1);
+
 					kmA = kmA * 0.10;
 					System.out.println("Co2 usado con el autobus: " + kmA);
 					total += kmA;
 					totalAutobus += kmA;
+
 					break;
+
 				case 3:
-					System.out.println("¿Cuantos KM has recorrido en bicicleta?");
-					bici = sc.nextDouble();
+
+					do {
+						System.out.println("¿Cuantos KM has recorrido en bicicleta?");
+						bici = sc.nextDouble();
+
+						if (bici < 1) {
+							System.out.println("El numero no puede ser menor que 1");
+						}
+
+					} while (bici < 1);
+
 					bici = bici * 0;
 					System.out.println("0 CO2 por km: " + bici);
 					total += bici;
+
 					break;
+
 				case 4:
-					System.out.println("Has usado la plancha? 1.Si | 0.No ");
+
+					System.out.println("Has usado la plancha? 1.Si | 2.No");
 					pl = sc.nextInt();
+
 					if (pl == 1) {
-						System.out.println("Cuantas horas lo has utilizado?");
-						upL = sc.nextDouble();
+
+						do {
+							System.out.println("¿Cuantas horas lo has utilizado?");
+							upL = sc.nextDouble();
+
+							if (upL < 1) {
+								System.out.println("El numero no puede ser menor que 1");
+							}
+
+						} while (upL < 1);
+
 						upL = upL * 0.70;
 						System.out.println("Co2 usado en la plancha: " + upL);
 						total += upL;
 						totalPlancha += upL;
+
 					} else if (pl == 2) {
+
 						System.out.println("Entendido, te llevo de vuelta el menu");
 					}
+
 					break;
+
 				case 5:
-					System.out.println("¿Cuantas horas has utilizado el ordenador?");
-					or = sc.nextDouble();
+
+					do {
+						System.out.println("¿Cuantas horas has utilizado el ordenador?");
+						or = sc.nextDouble();
+
+						if (or < 1) {
+							System.out.println("El numero no puede ser menor que 1");
+						}
+
+					} while (or < 1);
+
 					or = or * 0.08;
-					System.out.println("Co2 usado en el ordenador : " + or);
+					System.out.println("Co2 usado en el ordenador: " + or);
 					total += or;
 					totalOrdenador += or;
+
 					break;
 
 				case 6:
-					System.out.println("¿Cuantas horas has utilizado el movil?");
-					mv = sc.nextDouble();
+
+					do {
+						System.out.println("¿Cuantas horas has utilizado el movil?");
+						mv = sc.nextDouble();
+
+						if (mv < 1) {
+							System.out.println("El numero no puede ser menor que 1");
+						}
+
+					} while (mv < 1);
+
 					mv = mv * 0.02;
-					System.out.println("Co2 usado en el movil : " + mv);
+					System.out.println("Co2 usado en el movil: " + mv);
 					total += mv;
 					totalMovil += mv;
+
 					break;
 				case 7:
 					System.out.println("has finalizado persona " + persona + ", este es tu uso de Co2: " + total);
