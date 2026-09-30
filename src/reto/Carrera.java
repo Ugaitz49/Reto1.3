@@ -9,10 +9,9 @@ public class Carrera {
         Scanner cs = new Scanner(System.in);
         String dni;
         int individual = 0;
-        char parejas = 0;
+        int parejas = 0;
         int opcion;
 
-        int ParReg = 0;
         int RegParT = 0;
         int RC3 = 0;
         int RTM60m = 0;
@@ -20,8 +19,6 @@ public class Carrera {
         int TiempoMedio = 0;
         int TiempoTotal = 0;
 
-        int Si = 1;
-        int No = 2;
 
         int min = Integer.MAX_VALUE;
 
@@ -173,6 +170,6 @@ public class Carrera {
         System.out.println("Mejor tiempo: "
                 + minutosMejor + " minutos y "
                 + segundosMejor + " segundos");
-
+        cs.close();
     }
 }
