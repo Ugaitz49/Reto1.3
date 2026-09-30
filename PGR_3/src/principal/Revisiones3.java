@@ -31,7 +31,7 @@ public class Revisiones3 {
 
         // Bucle While: se repite mientras !salir sea true
         while (!salir) {
-            System.out.println("\nIntroduzca el número de identificación de la bicicleta:");
+            System.out.println("Introduzca el número de identificación de la bicicleta:");
             int identificacion = Integer.parseInt(cs.nextLine());
 
             System.out.println("Introduzca el día de la última revisión:");
