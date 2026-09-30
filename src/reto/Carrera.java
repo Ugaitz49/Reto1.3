@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class Carrera {
 
-	public static void main(String[] args) {
-		Scanner cs = new Scanner(System.in);
+    public static void main(String[] args) {
 
+        Scanner cs = new Scanner(System.in);
+        String dni;
         int individual = 0;
         char parejas = 0;
         int opcion;
@@ -26,15 +27,17 @@ public class Carrera {
 
         int respuesta;
         int RC = 0;
-        
-		// BUCLE PRINCIPAL
-        // Se repite mientras el usuario quiera registrar participantes
-        do {
 
-            System.out.println("Introduce tu DNI");
-            String dni = cs.next();
+        do {
+        	do {
+        	    System.out.println("Introduce tu DNI");
+        	     dni = cs.next();
+
+        	    if (dni.length() != 8) {
+        	        System.out.println("El DNI debe tener exactamente 8 caracteres.");
+        	    }
+        	} while (dni.length() != 8);
             
-            // BUCLE PARA ELEGIR EL TIPO DE CARRERA
             boolean sb = false;
 
             while (sb == false) {
@@ -55,12 +58,12 @@ public class Carrera {
                     sb = true;
                 }
             }
-         // BUCLE PARA LAS CARRERAS ANTERIORES
+
             boolean sb2 = false;
 
             while (sb2 == false) {
 
-                System.out.println("Introduzca el numero de carreras populares que ha participado anteriormente. Solo se valida numeros.");
+                System.out.println("Introduzca el numero de carreras populares que ha participado anteriormente");
 
                 int carreras = cs.nextInt();
 
@@ -81,7 +84,7 @@ public class Carrera {
                     System.out.println("El numero no puede ser menor que 0");
                 }
             }
-            // BUCLE PARA INTRODUCIR EL TIEMPO
+
             boolean sb3 = false;
 
             int minutos;
@@ -173,6 +176,3 @@ public class Carrera {
 
     }
 }
-
-
-
