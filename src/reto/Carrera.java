@@ -60,7 +60,7 @@ public class Carrera {
 
             while (sb2 == false) {
 
-                System.out.println("Introduzca el numero de carreras populares que ha participado anteriormente");
+                System.out.println("Introduzca el numero de carreras populares que ha participado anteriormente. Solo se valida numeros.");
 
                 int carreras = cs.nextInt();
 
